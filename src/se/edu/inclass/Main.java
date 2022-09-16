@@ -17,6 +17,7 @@ public class Main {
         System.out.println("All data:");
         printData(tasksData);
 
+//code to stage
         System.out.println("Printing deadlines");
         printDeadlines(tasksData);
         printDataUsingStream(tasksData);
