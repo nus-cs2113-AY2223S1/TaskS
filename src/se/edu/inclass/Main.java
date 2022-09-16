@@ -2,10 +2,13 @@ package se.edu.inclass;
 
 import se.edu.inclass.data.DataManager;
 import se.edu.inclass.task.Deadline;
+import se.edu.inclass.task.Event;
 import se.edu.inclass.task.Task;
 import se.edu.inclass.task.TaskNameComparator;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 
