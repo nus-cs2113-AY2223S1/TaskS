@@ -65,8 +65,8 @@ public class DataManager {
     private ArrayList<Task> parse(ArrayList<String> dataItems) {
         ArrayList<Task> allTasks = new ArrayList<>();
         for (String line : dataItems) {
-            String taskType = getTaskType(line);
-            String taskDescription = getTaskDescription(line);
+            String taskType = getTaskType(line);    //SLAP
+            String taskDescription = getTaskDescription(line); //SLAP
             switch (taskType) {
             case "T":
                 ToDo todo = new ToDo(taskDescription);
