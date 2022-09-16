@@ -10,6 +10,8 @@ import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static java.util.stream.Collectors.toList;
+
 public class Main {
 
     private TaskNameComparator taskNameComparator;
@@ -24,6 +26,8 @@ public class Main {
         System.out.println("Printing deadlines");
         printDeadlinesUsingStream(tasksData);
 
+        ArrayList<Task> filteredList = filterTaskByString(tasksData, "11");
+        System.out.println("Data with string 11" + filteredList);
         System.out.println("Total number of deadlines: " + countDeadlinesUsingStream(tasksData));
 
     }
@@ -72,6 +76,16 @@ public class Main {
     public static void printDeadlinesUsingStream(ArrayList<Task> tasks) {
         tasks.parallelStream()
                 .filter(n -> n instanceof Deadline)
+                .sorted((a,b) -> a.getDescription().
+                        compareToIgnoreCase(b.getDescription()))
                 .forEach(System.out::println);
+    }
+
+    public static ArrayList<Task> filterTaskByString(ArrayList<Task> tasks, String filterString) {
+        ArrayList<Task> filteredList = (ArrayList<Task>) tasks.stream()
+                .filter(t -> t.getDescription().contains(filterString))
+                .collect(toList());
+
+        return filteredList;
     }
 }
